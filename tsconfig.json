@@ -1,6 +1,8 @@
 {
   "compilerOptions": {
-    "lib": ["ESNext"],
+    "baseUrl": "src",
+    "jsxImportSource": "solid-js",
+    "jsx": "preserve",
     "module": "esnext",
     "target": "esnext",
     "moduleResolution": "bundler",
@@ -11,12 +13,12 @@
     "strict": true,
     "downlevelIteration": true,
     "skipLibCheck": true,
-    "jsx": "react-jsx",
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
     "allowJs": true,
     "types": [
-      "bun-types" // add Bun global
-    ]
+      "bun-types", // add Bun global
+    ],
   }
 }
