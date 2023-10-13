@@ -4,6 +4,7 @@
   "module": "src/index.ts",
   "types": "src/index.ts",
   "dependencies": {
+    "@ctx-core/dom": "^14.2.1",
     "@ctx-core/object": "^28.2.0"
   },
   "devDependencies": {
