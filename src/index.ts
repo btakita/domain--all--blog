@@ -1,4 +1,5 @@
 export * from './ctx'
 export * from './post'
 export * from './search'
+export * from './slug'
 export * from './theme'
