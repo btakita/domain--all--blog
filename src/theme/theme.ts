@@ -13,9 +13,6 @@ export const [
 		localStorage.setItem('theme', theme)
 	})
 	const localStorage__theme = localStorage.getItem('theme') as theme_T
-	console.debug('theme|debug|1', {
-		localStorage__theme
-	})
 	theme$.$ =
 		localStorage__theme
 			? localStorage__theme
