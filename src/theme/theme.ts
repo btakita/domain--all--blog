@@ -1,4 +1,5 @@
-import { atom_, be_computed_pair_ } from '@ctx-core/nanostores'
+import { has_dom } from '@ctx-core/dom'
+import { atom_, be_computed_pair_, onStart, onStop } from '@ctx-core/nanostores'
 import { type Ctx } from '@ctx-core/object'
 export const [
 	theme$_,
@@ -12,10 +13,34 @@ export const [
 		localStorage.setItem('theme', theme)
 	})
 	const localStorage__theme = localStorage.getItem('theme') as theme_T
+	console.debug('theme|debug|1', {
+		localStorage__theme
+	})
 	theme$.$ =
 		localStorage__theme
 			? localStorage__theme
 			: theme__new(watch.matches)
+	if (has_dom) {
+		onStart(theme$, ()=>{
+			onStop(theme$,
+				theme$.subscribe(theme=>{
+					document.firstElementChild.setAttribute('data-theme', theme)
+					// Get a reference to the body element
+					const body = document.body
+					// Check if the body element exists before using getComputedStyle
+					if (body) {
+						// Get the computed styles for the body element
+						const ComputedStyle = window.getComputedStyle(body)
+						// Get the background color property
+						const { backgroundColor } = ComputedStyle
+						// Set the background color in <meta theme-color ... />
+						document
+							.querySelector('meta[name="theme-color"]')
+							?.setAttribute('content', backgroundColor)
+					}
+				}))
+		})
+	}
 	return theme$
 	function theme__new(is_dark:boolean) {
 		return is_dark ? 'dark' : 'light'
@@ -26,6 +51,6 @@ export function theme__set(ctx:Ctx, theme:theme_T) {
 	theme$_(ctx).$ = theme
 }
 export function theme__toggle(ctx:Ctx) {
-  theme__set(ctx, theme_(ctx) === 'light' ? 'dark' : 'light')
+	theme__set(ctx, theme_(ctx) === 'light' ? 'dark' : 'light')
 }
 export type theme_T = 'light'|'dark'
