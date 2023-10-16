@@ -1,5 +1,5 @@
 import { has_dom } from '@ctx-core/dom'
-import { atom_, be_computed_pair_, onStart, onStop } from '@ctx-core/nanostores'
+import { atom_, be_computed_pair_, onMount } from '@ctx-core/nanostores'
 import { type Ctx } from '@ctx-core/object'
 export const [
 	theme$_,
@@ -18,25 +18,23 @@ export const [
 			? localStorage__theme
 			: theme__new(watch.matches)
 	if (has_dom) {
-		onStart(theme$, ()=>{
-			onStop(theme$,
-				theme$.subscribe(theme=>{
-					document.firstElementChild.setAttribute('data-theme', theme)
-					// Get a reference to the body element
-					const body = document.body
-					// Check if the body element exists before using getComputedStyle
-					if (body) {
-						// Get the computed styles for the body element
-						const ComputedStyle = window.getComputedStyle(body)
-						// Get the background color property
-						const { backgroundColor } = ComputedStyle
-						// Set the background color in <meta theme-color ... />
-						document
-							.querySelector('meta[name="theme-color"]')
-							?.setAttribute('content', backgroundColor)
-					}
-				}))
-		})
+		onMount(theme$, ()=>
+			theme$.subscribe(theme=>{
+				document.firstElementChild!.setAttribute('data-theme', theme)
+				// Get a reference to the body element
+				const body = document.body
+				// Check if the body element exists before using getComputedStyle
+				if (body) {
+					// Get the computed styles for the body element
+					const ComputedStyle = window.getComputedStyle(body)
+					// Get the background color property
+					const { backgroundColor } = ComputedStyle
+					// Set the background color in <meta theme-color ... />
+					document
+						.querySelector('meta[name="theme-color"]')
+						?.setAttribute('content', backgroundColor)
+				}
+			}))
 	}
 	return theme$
 	function theme__new(is_dark:boolean) {
