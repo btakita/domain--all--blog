@@ -4,6 +4,7 @@ export interface Post {
 	body:string
 	collection:string
 	data:{
+		author:string
 		title:string
 		description:string
 		pubDate:Date // astro compatibility
