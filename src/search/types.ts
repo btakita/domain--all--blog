@@ -1,8 +1,9 @@
 import { type Post } from '../post'
-export type SearchItem = {
+export interface SearchItem extends Partial<Post> {
 	title:string
 	description:string
-	post__data:Post['data']
+	slug:string
+	data:Post['data']
 }
 export interface SearchResult {
 	item:SearchItem
