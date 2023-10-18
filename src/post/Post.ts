@@ -12,5 +12,6 @@ export interface Post {
 		hero_image?:string
 		tags:string[]
 		slug?:string
+		draft?:boolean
 	}
 }
