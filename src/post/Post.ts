@@ -13,5 +13,6 @@ export interface Post {
 		tags:string[]
 		slug?:string
 		draft?:boolean
+		canonical_url?:string
 	}
 }
