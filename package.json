@@ -5,9 +5,9 @@
   "types": "src/index.ts",
   "dependencies": {
     "@ctx-core/dom": "^14.2.4",
-    "@ctx-core/nanostores": "^6.0.13",
+    "@ctx-core/nanostores": "^7.0.0",
     "@ctx-core/object": "^28.2.1",
-    "@ctx-core/solid-nanostores": "^19.0.4"
+    "@ctx-core/solid-nanostores": "^20.0.0"
   },
   "devDependencies": {
     "bun-types": "latest"
