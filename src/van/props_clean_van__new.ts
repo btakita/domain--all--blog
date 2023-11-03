@@ -12,7 +12,8 @@ export function props_clean_van__new<V extends VanShape>(van:V):Van_w_undefined<
 					props,
 					...children
 				] = (protoOf(args[0] ?? 0) === objProto ? args : [{}, ...args]) as [Props, ...ChildDom<V>[]]
-				return tag(props__clean(props), ...children)
+				const clean_props = props__clean(props)
+				return tag(clean_props, ...children)
 			}) as TagFunc<V>
 		}
 	})
@@ -32,8 +33,6 @@ function props__clean(props:Props) {
 export type Props_w_undefined = Record<string, Props[string]|undefined>
 export type TagFunc_w_undefined<V extends VanShape> = (
 	first?:Props|ChildDom<V>|Props_w_undefined,
-	// TODO: Why is |Primitive needed & not covered by ChildDom<V>?
-	// All branches of ChildDom<V> have Primitive in the union...
 	...rest:readonly ChildDom<V>[]
 )=>ReturnType<TagFunc<V>>
 export type Tags_w_undefined<V extends VanShape> = Record<string, TagFunc_w_undefined<V>>

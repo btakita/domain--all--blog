@@ -6,34 +6,6 @@ import { van_ } from './van'
 export function be_state_triple_<
 	S extends State<unknown|undefined>,
 	ctx_T extends Ctx = Ctx
->(
-	be__params?:be__params_T
-):be_state_triple_T<S, ctx_T>
-export function be_state_triple_<
-	S extends State<unknown|undefined>,
-	ctx_T extends Ctx = Ctx
->(
-	id:string|null|undefined,
-	be__params?:be__params_T
-):be_state_triple_T<S, ctx_T>
-export function be_state_triple_<
-	S extends State<unknown|undefined>,
-	ctx_T extends Ctx = Ctx
->(
-	state__new:(ctx:Ctx)=>S,
-	be__params?:be__params_T
-):be_state_triple_T<S, ctx_T>
-export function be_state_triple_<
-	S extends State<unknown|undefined>,
-	ctx_T extends Ctx = Ctx
->(
-	id?:string|null|undefined,
-	state__new?:(ctx:Ctx)=>S,
-	be__params?:be__params_T
-):be_state_triple_T<S, ctx_T>
-export function be_state_triple_<
-	S extends State<unknown|undefined>,
-	ctx_T extends Ctx = Ctx
 >(...arg_a:
 	|[be__params?:be__params_T]
 	|[id:string|null|undefined, be__params?:be__params_T]
@@ -63,7 +35,7 @@ export function be_state_triple_<
 		val$_,
 		val_,
 		val__set
-	]
+	] as be_state_triple_T<S, ctx_T>
 }
 export type be_state_triple_T<
 	S extends State<unknown>,
