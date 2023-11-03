@@ -12,6 +12,7 @@ export interface Post {
 		hero_image?:string
 		tags:string[]
 		slug?:string
+		featured?:boolean
 		draft?:boolean
 		canonical_url?:string
 	}
