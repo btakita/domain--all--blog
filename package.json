@@ -1,22 +1,23 @@
 {
-  "name": "@btakita/domain--all--blog",
-  "type": "module",
-  "module": "src/index.ts",
-  "types": "src/index.ts",
-  "dependencies": {
-    "@ctx-core/dom": "^15.0.0",
-    "@ctx-core/function": "^21.20.2",
-    "@ctx-core/nanostores": "^7.0.4",
-    "@ctx-core/object": "^28.2.2",
-    "@ctx-core/solid-nanostores": "^20.0.6",
-    "mini-van-plate": "^0.5.3",
-    "van-type-delegate": "workspace:*",
-    "vanjs-core": "^1.2.6"
-  },
-  "devDependencies": {
-    "bun-types": "latest"
-  },
-  "peerDependencies": {
-    "typescript": "^5.2.2"
-  }
+	"name": "@btakita/domain--all--blog",
+	"type": "module",
+	"module": "src/index.ts",
+	"types": "src/index.ts",
+	"dependencies": {
+		"@ctx-core/dom": "^15.0.2",
+		"@ctx-core/function": "^21.20.2",
+		"@ctx-core/nanostores": "^7.0.5",
+		"@ctx-core/object": "^29.0.0",
+		"@ctx-core/solid-nanostores": "^21.0.0",
+		"@ctx-core/vanjs": "^1.6.1",
+		"mini-van-plate": "^0.5.3",
+		"vanjs-core": "^1.2.6"
+	},
+	"devDependencies": {
+		"bun-types": "latest",
+		"van-type-delegate": "^1.1.1"
+	},
+	"peerDependencies": {
+		"typescript": "^5.2.2"
+	}
 }
