@@ -9,7 +9,7 @@
     "@ctx-core/nanostores": "^7.0.6",
     "@ctx-core/object": "^29.0.0",
     "@ctx-core/solid-nanostores": "^21.0.1",
-    "@ctx-core/vanjs": "2.1.1",
+    "@ctx-core/vanjs": "2.1.2",
     "mini-van-plate": "^0.5.3",
     "vanjs-core": "^1.2.6",
     "vanjs-ext": "^0.1.3"
