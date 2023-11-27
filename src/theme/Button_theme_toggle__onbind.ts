@@ -1,16 +1,18 @@
 /// <reference lib="dom" />
 import { id__dom__handler_ } from '@ctx-core/dom'
-import { type Ctx } from '@ctx-core/object'
-import { theme$_, theme__toggle } from './theme.ts'
+import { type Ctx } from 'ctx-core/be'
+import { memo_, memo_T } from 'rmemo'
+import { theme_, theme__toggle } from './theme.js'
 export const Button_theme_toggle__onbind = id__dom__handler_(
 	'Button_theme_toggle__onbind',
-	(Button_theme_toggle:HTMLButtonElement, ctx:Ctx)=>{
+	(Button_theme_toggle:HTMLButtonElement&{ _aria_label: memo_T<any> }, ctx:Ctx)=>{
 		Button_theme_toggle.addEventListener('click', Button_theme_toggle__onclick)
+		Button_theme_toggle._aria_label = memo_($=>{
+			Button_theme_toggle.setAttribute('aria-label', theme_(ctx))
+			return $
+		})
 		const unbind_a = [
 			()=>Button_theme_toggle.removeEventListener('click', Button_theme_toggle__onclick),
-			theme$_(ctx).subscribe(theme=>{
-				Button_theme_toggle.setAttribute('aria-label', theme)
-			})
 		]
 		Button_theme_toggle.addEventListener('unbind', ()=>{
 			for (const unbind of unbind_a) {

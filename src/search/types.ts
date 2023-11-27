@@ -1,4 +1,4 @@
-import { type Post } from '../post'
+import { type Post } from '../post/index.js'
 export interface SearchItem extends Partial<Post> {
 	title:string
 	description:string
