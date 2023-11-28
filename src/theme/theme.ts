@@ -1,24 +1,14 @@
 import { has_dom } from '@ctx-core/dom'
 import { type Ctx } from 'ctx-core/be'
-import { be_, be_memo_pair_, memo_, sig_ } from 'rmemo'
+import { be_, be_sig_triple_, sig_ } from 'rmemo'
 export const [
 	theme$_,
 	theme_,
-] = be_memo_pair_(be_(()=>{
-	const theme$ = sig_<theme_T>('light')
-	if (has_dom) {
-		const watch = window.matchMedia('(prefers-color-scheme: dark)')
-		watch.addEventListener('change', ({ matches: is_dark })=>{
-			const theme = theme__new(is_dark)
-			theme$._ = theme
-			localStorage.setItem('theme', theme)
-		})
-		const localStorage__theme = localStorage.getItem('theme') as theme_T
-		theme$._ =
-			localStorage__theme
-				? localStorage__theme
-				: theme__new(watch.matches)
-		memo_(()=>{
+	,
+] = be_sig_triple_<theme_T>(be_(()=>{
+	let watch:MediaQueryList
+	const theme$ = sig_<theme_T>('light', theme$=>{
+		if (has_dom) {
 			document.firstElementChild!.setAttribute('data-theme', theme$())
 			// Get a reference to the body element
 			const body = document.body
@@ -33,7 +23,20 @@ export const [
 					.querySelector('meta[name="theme-color"]')
 					?.setAttribute('content', backgroundColor)
 			}
-		})()
+		}
+	})
+	if (has_dom) {
+		watch = window.matchMedia('(prefers-color-scheme: dark)')
+		watch.addEventListener('change', ({ matches: is_dark })=>{
+			const theme = theme__new(is_dark)
+			theme$._ = theme
+			localStorage.setItem('theme', theme)
+		})
+		const localStorage__theme = localStorage.getItem('theme') as theme_T
+		theme$._ =
+			localStorage__theme
+				? localStorage__theme
+				: theme__new(watch.matches)
 	}
 	return theme$
 }, { id: 'theme' }))
