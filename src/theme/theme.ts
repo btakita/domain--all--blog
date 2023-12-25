@@ -1,5 +1,5 @@
 import { has_dom } from '@ctx-core/dom'
-import { type Ctx } from 'ctx-core/be'
+import { type Ctx_wide_T } from 'ctx-core/be'
 import { be_, be_sig_triple_, sig_ } from 'rmemo'
 export const [
 	theme$_,
@@ -43,11 +43,11 @@ export const [
 function theme__new(is_dark:boolean) {
 	return is_dark ? 'dark' : 'light'
 }
-export function theme__set(ctx:Ctx, theme:theme_T) {
+export function theme__set(ctx:Ctx_wide_T<''>, theme:theme_T) {
 	localStorage.setItem('theme', theme)
 	theme$_(ctx)._ = theme
 }
-export function theme__toggle(ctx:Ctx) {
+export function theme__toggle(ctx:Ctx_wide_T<''>) {
 	theme__set(ctx, theme_(ctx) === 'light' ? 'dark' : 'light')
 }
 export type theme_T = 'light'|'dark'
