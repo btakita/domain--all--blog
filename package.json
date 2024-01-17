@@ -5,9 +5,9 @@
 	"module": "src/index.ts",
 	"types": "src/index.ts",
 	"dependencies": {
-		"@ctx-core/dom": "^15.2.29",
-		"ctx-core": "^5.21.0",
-		"rmemo": "^0.31.13"
+		"@ctx-core/dom": "^15.2.30",
+		"ctx-core": "^5.22.0",
+		"rmemo": "^0.32.0"
 	},
 	"devDependencies": {
 		"bun-types": "latest"
