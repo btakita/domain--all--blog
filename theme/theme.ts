@@ -1,6 +1,5 @@
-import { is_browser_, rmemo__off__add } from 'ctx-core/all'
-import { type Ctx_wide_T } from 'ctx-core/be'
-import { id_be_sig_triple_ } from 'rmemo'
+import { is_browser_, is_server_ } from 'ctx-core/env'
+import { id_be_sig_triple_, memo_, rmemo__off__add } from 'rmemo'
 import { type root_ctx_T } from '../ctx/root_ctx.ts'
 export const [
 	theme$_,
@@ -10,7 +9,8 @@ export const [
 	'theme',
 	()=>'light'
 ).add((ctx, theme$)=>{
-	if (is_browser_()) {
+	if (is_server_()) return
+	return memo_(()=>{
 		document.firstElementChild!.setAttribute('data-theme', theme$())
 		// Get a reference to the body element
 		const { body } = document
@@ -25,6 +25,9 @@ export const [
 				.querySelector('meta[name="theme-color"]')
 				?.setAttribute('content', backgroundColor)
 		}
+	})
+}).add((ctx, theme$)=>{
+	if (is_browser_()) {
 		const watch = window.matchMedia('(prefers-color-scheme: dark)')
 		watch.addEventListener('change', watch__onchange)
 		rmemo__off__add(theme$, ()=>{
@@ -49,7 +52,7 @@ export function theme__set(ctx:root_ctx_T, theme:theme_T) {
 	localStorage.setItem('theme', theme)
 	theme$_(ctx)._ = theme
 }
-export function theme__toggle(ctx:Ctx_wide_T<''>) {
+export function theme__toggle(ctx:root_ctx_T) {
 	theme__set(ctx, theme_(ctx) === 'light' ? 'dark' : 'light')
 }
 export type theme_T = 'light'|'dark'
