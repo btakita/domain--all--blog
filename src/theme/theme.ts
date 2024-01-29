@@ -1,36 +1,34 @@
-import { has_dom } from '@ctx-core/dom'
+import { is_browser_, rmemo__off__add } from 'ctx-core/all'
 import { type Ctx_wide_T } from 'ctx-core/be'
-import { be_, be_sig_triple_, sig_ } from 'rmemo'
+import { id_be_sig_triple_ } from 'rmemo'
+import { type root_ctx_T } from '../ctx/root_ctx.ts'
 export const [
 	theme$_,
 	theme_,
 	,
-] = be_sig_triple_<theme_T>(be_(()=>{
-	let watch:MediaQueryList
-	const theme$ = sig_<theme_T>('light', theme$=>{
-		if (has_dom) {
-			document.firstElementChild!.setAttribute('data-theme', theme$())
-			// Get a reference to the body element
-			const body = document.body
-			// Check if the body element exists before using getComputedStyle
-			if (body) {
-				// Get the computed styles for the body element
-				const ComputedStyle = window.getComputedStyle(body)
-				// Get the background color property
-				const { backgroundColor } = ComputedStyle
-				// Set the background color in <meta theme-color ... />
-				document
-					.querySelector('meta[name="theme-color"]')
-					?.setAttribute('content', backgroundColor)
-			}
+] = id_be_sig_triple_<theme_T, { watch?:MediaQueryList }>(
+	'theme',
+	()=>'light'
+).add((ctx, theme$)=>{
+	if (is_browser_()) {
+		document.firstElementChild!.setAttribute('data-theme', theme$())
+		// Get a reference to the body element
+		const { body } = document
+		// Check if the body element exists before using getComputedStyle
+		if (body) {
+			// Get the computed styles for the body element
+			const ComputedStyle = window.getComputedStyle(body)
+			// Get the background color property
+			const { backgroundColor } = ComputedStyle
+			// Set the background color in <meta theme-color ... />
+			document
+				.querySelector('meta[name="theme-color"]')
+				?.setAttribute('content', backgroundColor)
 		}
-	})
-	if (has_dom) {
-		watch = window.matchMedia('(prefers-color-scheme: dark)')
-		watch.addEventListener('change', ({ matches: is_dark })=>{
-			const theme = theme__new(is_dark)
-			theme$._ = theme
-			localStorage.setItem('theme', theme)
+		const watch = window.matchMedia('(prefers-color-scheme: dark)')
+		watch.addEventListener('change', watch__onchange)
+		rmemo__off__add(theme$, ()=>{
+			watch.removeEventListener('change', watch__onchange)
 		})
 		const localStorage__theme = localStorage.getItem('theme') as theme_T
 		theme$._ =
@@ -38,12 +36,16 @@ export const [
 				? localStorage__theme
 				: theme__new(watch.matches)
 	}
-	return theme$
-}, { id: 'theme' }))
+	function watch__onchange({ matches: is_dark }:{ matches:boolean }) {
+		const theme = theme__new(is_dark)
+		theme$._ = theme
+		localStorage.setItem('theme', theme)
+	}
+})
 function theme__new(is_dark:boolean) {
 	return is_dark ? 'dark' : 'light'
 }
-export function theme__set(ctx:Ctx_wide_T<''>, theme:theme_T) {
+export function theme__set(ctx:root_ctx_T, theme:theme_T) {
 	localStorage.setItem('theme', theme)
 	theme$_(ctx)._ = theme
 }
