@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "baseUrl": "src",
     "module": "esnext",
     "target": "esnext",
     "moduleResolution": "nodenext",
@@ -16,7 +15,6 @@
     "esModuleInterop": true,
     "allowJs": true,
     "types": [
-      "bun-types" // add Bun global
     ]
   }
 }
