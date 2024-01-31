@@ -5,8 +5,8 @@
 	"module": "index.ts",
 	"types": "index.ts",
 	"dependencies": {
-		"ctx-core": "^5.35.1",
-		"rmemo": "^0.40.1"
+		"ctx-core": "^5.36.0",
+		"rmemo": "^0.40.3"
 	},
 	"devDependencies": {
 		"bun-types": "latest"
