@@ -1,10 +1,9 @@
 import { slug } from 'github-slugger'
-import { type Post } from '../post/index.js'
-import { type SearchItem } from '../search/index.js'
-export function post__slug__new(post:Post|SearchItem) {
+import { type dehydrated_post_meta_T } from '../post/index.js'
+export function post__slug__new(dehydrated_post_meta:dehydrated_post_meta_T) {
 	return (
-		post.slug
-			? slug(post.slug)
-			: slug(post.data.title)
+		dehydrated_post_meta.slug
+			? slug(dehydrated_post_meta.slug)
+			: slug(dehydrated_post_meta.data.title)
 	)
 }

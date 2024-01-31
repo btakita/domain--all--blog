@@ -1,11 +1,5 @@
-import { type Post } from '../post/index.js'
-export interface SearchItem extends Partial<Post> {
-	title:string
-	description:string
-	slug:string
-	data:Post['data']
-}
+import { type dehydrated_post_meta_T } from '../post/index.js'
 export interface SearchResult {
-	item:SearchItem
+	item:dehydrated_post_meta_T
 	refIndex:number
 }
