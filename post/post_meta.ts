@@ -1,3 +1,38 @@
+import { nullish__none_ } from 'ctx-core/function'
+import { id_be_lock_memosig_triple_, id_be_memo_pair_ } from 'ctx-core/rmemo'
+import { post_mod_a1_ } from './post_mod.ts'
+export const [
+	dehydrated_post_meta_a1$_,
+	dehydrated_post_meta_a1_,
+	dehydrated_post_meta_a1__set,
+] = id_be_lock_memosig_triple_(
+	'dehydrated_post_meta_a1',
+	ctx=>
+		nullish__none_([post_mod_a1_(ctx)],
+			post_mod_a1=>
+				post_mod_a1.map(post_mod=>
+					post_mod.meta)))
+export const [
+	sorted_dehydrated_post_meta_a1$_,
+	sorted_dehydrated_post_meta_a1_,
+] = id_be_memo_pair_(
+	'sorted_dehydrated_post_meta_a1',
+	ctx=>
+		nullish__none_([dehydrated_post_meta_a1_(ctx)],
+			dehydrated_post_meta_a1=>
+				sorted_dehydrated_post_meta_a1__new(
+					dehydrated_post_meta_a1)))
+export function sorted_dehydrated_post_meta_a1__new(
+	dehydrated_post_meta_a1:dehydrated_post_meta_T[]
+) {
+	return (
+		dehydrated_post_meta_a1
+			.filter(({ draft })=>!draft)
+			.sort(
+				(a, b)=>
+					Math.floor(new Date(b.pub_date).getTime() / 1000) -
+					Math.floor(new Date(a.pub_date).getTime() / 1000)))
+}
 export function post_meta__validate(
 	dehydrated_post_meta:in_dehydrated_post_meta_T
 ):dehydrated_post_meta_T {
