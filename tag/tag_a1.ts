@@ -1,7 +1,7 @@
 import { id_be_memo_pair_ } from 'ctx-core/rmemo'
 import { nullish__none_ } from 'ctx-core/function'
-import { dehydrated_post_meta_a1_, type dehydrated_post_meta_T } from '../post/index.ts'
-import { str__slug__new } from '../slug/index.ts'
+import { dehydrated_post_meta_a1_, type dehydrated_post_meta_T } from '../post/index.js'
+import { str__slug__new } from '../slug/index.js'
 export const [
 	unique_tag_a1$_,
 	unique_tag_a1_,
