@@ -1,6 +1,6 @@
 import { is_browser_, is_server_ } from 'ctx-core/env'
 import { id_be_sig_triple_, memo_, rmemo__off__add } from 'rmemo'
-import { type root_ctx_T } from '../ctx/root_ctx.ts'
+import { type root_ctx_T } from '../ctx/index.js'
 export const [
 	theme$_,
 	theme_,

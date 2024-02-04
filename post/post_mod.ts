@@ -1,7 +1,7 @@
 import { type request_ctx_T } from 'rebuildjs/server'
 import { type tag_dom_T } from 'relementjs'
 import { id_be_sig_triple_ } from 'rmemo'
-import { type dehydrated_post_meta_T } from './post_meta.ts'
+import { type dehydrated_post_meta_T } from './post_meta.js'
 export const [
 	post_mod_a1$_,
 	post_mod_a1_,

@@ -1,6 +1,6 @@
 import { nullish__none_ } from 'ctx-core/function'
 import { id_be_lock_memosig_triple_, id_be_memo_pair_ } from 'ctx-core/rmemo'
-import { post_mod_a1_ } from './post_mod.ts'
+import { post_mod_a1_ } from './post_mod.js'
 export const [
 	dehydrated_post_meta_a1$_,
 	dehydrated_post_meta_a1_,
