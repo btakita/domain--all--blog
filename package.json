@@ -2,8 +2,11 @@
 	"name": "@btakita/domain--any--blog",
 	"type": "module",
 	"version": "0.0.0",
-	"module": "index.ts",
 	"types": "index.ts",
+	"exports": {
+		".": "./index.ts",
+		"./package.json": "./package.json"
+	},
 	"dependencies": {
 		"ctx-core": "^5.38.0",
 		"rmemo": "^0.42.0"
