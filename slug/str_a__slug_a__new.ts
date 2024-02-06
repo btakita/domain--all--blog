@@ -1,4 +1,4 @@
-import { str__slug__new } from './str__slug__new.js'
+import { slug__new } from './slug__new.js'
 export function str_a__slug_a__new(str_a:string[]) {
-	return str_a.map(str=>str__slug__new(str))
+	return str_a.map(str=>slug__new(str))
 }
