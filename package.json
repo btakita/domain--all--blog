@@ -1,8 +1,29 @@
 {
-	"name": "@btakita/domain--any--blog",
+	"name": "@rappstack/domain--any--blog",
 	"type": "module",
 	"version": "0.0.0",
 	"types": "index.ts",
+	"description": "domain library targeting the browser & server for blogs",
+	"keywords": [
+		"rappstack",
+		"reactive",
+		"full-stack",
+		"domain",
+		"isomorphic",
+		"browser",
+		"server",
+		"blog"
+	],
+	"homepage": "https://github.com/rappstack/domain--any--blog",
+	"bugs": {
+		"url": "https://github.com/rappstack/domain--any--blog/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/rappstack/domain--any--blog.git"
+	},
+	"license": "Apache-2.0",
+	"author": "Brian Takita",
 	"exports": {
 		".": "./index.ts",
 		"./package.json": "./package.json"
