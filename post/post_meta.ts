@@ -1,5 +1,6 @@
 import { nullish__none_ } from 'ctx-core/function'
 import { id_be_lock_memosig_triple_, id_be_memo_pair_ } from 'ctx-core/rmemo'
+import { type request_ctx_T } from 'rebuildjs/server'
 import { post_mod_a1_ } from './post_mod.js'
 export const [
 	dehydrated_post_meta_a1$_,
@@ -7,17 +8,17 @@ export const [
 	dehydrated_post_meta_a1__set,
 ] = id_be_lock_memosig_triple_(
 	'dehydrated_post_meta_a1',
-	ctx=>
+	(ctx:request_ctx_T)=>
 		nullish__none_([post_mod_a1_(ctx)],
 			post_mod_a1=>
 				post_mod_a1.map(post_mod=>
-					post_mod.meta)))
+					post_mod.meta_(ctx))))
 export const [
 	sorted_dehydrated_post_meta_a1$_,
 	sorted_dehydrated_post_meta_a1_,
 ] = id_be_memo_pair_(
 	'sorted_dehydrated_post_meta_a1',
-	ctx=>
+	(ctx:request_ctx_T)=>
 		nullish__none_([dehydrated_post_meta_a1_(ctx)],
 			dehydrated_post_meta_a1=>
 				sorted_dehydrated_post_meta_a1__new(

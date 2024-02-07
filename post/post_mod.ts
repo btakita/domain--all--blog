@@ -10,6 +10,6 @@ export const [
 	'post_mod_a1',
 	()=>undefined)
 export type post_mod_T = {
-	meta:dehydrated_post_meta_T
-	default:((ctx:request_ctx_T)=>tag_dom_T)
+	meta_:(ctx:request_ctx_T)=>dehydrated_post_meta_T
+	default:(ctx:request_ctx_T)=>tag_dom_T
 }
