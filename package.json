@@ -2,7 +2,6 @@
 	"name": "@rappstack/domain--any--blog",
 	"type": "module",
 	"version": "0.0.0",
-	"types": "index.ts",
 	"description": "domain library targeting the browser & server for blogs",
 	"keywords": [
 		"rappstack",
@@ -24,10 +23,22 @@
 	},
 	"license": "Apache-2.0",
 	"author": "Brian Takita",
+	"types": "index.ts",
 	"exports": {
 		".": "./index.ts",
 		"./package.json": "./package.json"
 	},
+	"files": [
+		"*.d.ts",
+		"*.js",
+		"*.json",
+		"ctx",
+		"post",
+		"search",
+		"slug",
+		"tag",
+		"theme"
+	],
 	"dependencies": {
 		"ctx-core": "^5.38.1",
 		"rmemo": "^0.42.1"
