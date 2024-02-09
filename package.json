@@ -26,7 +26,6 @@
 	"types": "index.ts",
 	"exports": {
 		".": "./index.ts",
-		"./ctx": "./ctx/index.ts",
 		"./post": "./post/index.ts",
 		"./search": "./search/index.ts",
 		"./slug": "./slug/index.ts",
@@ -38,7 +37,6 @@
 		"*.d.ts",
 		"*.js",
 		"*.json",
-		"ctx",
 		"post",
 		"search",
 		"slug",
