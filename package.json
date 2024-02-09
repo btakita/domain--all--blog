@@ -40,8 +40,8 @@
 		"theme"
 	],
 	"dependencies": {
-		"ctx-core": "^5.38.1",
-		"rmemo": "^0.42.1"
+		"ctx-core": "^6.1.0",
+		"rmemo": "^0.44.0"
 	},
 	"devDependencies": {
 		"bun-types": "latest"

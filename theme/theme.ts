@@ -1,6 +1,5 @@
 import { is_browser_, is_server_ } from 'ctx-core/env'
-import { id_be_sig_triple_, memo_, rmemo__off__add } from 'rmemo'
-import { type root_ctx_T } from '../ctx/index.js'
+import { id_be_sig_triple_, memo_, rmemo__off__add, type wide_ctx_T } from 'rmemo'
 export const [
 	theme$_,
 	theme_,
@@ -48,11 +47,11 @@ export const [
 function theme__new(is_dark:boolean) {
 	return is_dark ? 'dark' : 'light'
 }
-export function theme__set(ctx:root_ctx_T, theme:theme_T) {
+export function theme__set(ctx:wide_ctx_T, theme:theme_T) {
 	localStorage.setItem('theme', theme)
 	theme$_(ctx)._ = theme
 }
-export function theme__toggle(ctx:root_ctx_T) {
+export function theme__toggle(ctx:wide_ctx_T) {
 	theme__set(ctx, theme_(ctx) === 'light' ? 'dark' : 'light')
 }
 export type theme_T = 'light'|'dark'
