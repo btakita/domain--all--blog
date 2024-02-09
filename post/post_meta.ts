@@ -8,17 +8,18 @@ export const [
 	dehydrated_post_meta_a1__set,
 ] = id_be_lock_memosig_triple_(
 	'dehydrated_post_meta_a1',
-	(ctx:request_ctx_T)=>
+	ctx=>
 		nullish__none_([post_mod_a1_(ctx)],
 			post_mod_a1=>
 				post_mod_a1.map(post_mod=>
-					post_mod.meta_(ctx))))
+					// server side...will not execute on browser
+					post_mod.meta_(ctx as request_ctx_T))))
 export const [
 	sorted_dehydrated_post_meta_a1$_,
 	sorted_dehydrated_post_meta_a1_,
 ] = id_be_memo_pair_(
 	'sorted_dehydrated_post_meta_a1',
-	(ctx:request_ctx_T)=>
+	ctx=>
 		nullish__none_([dehydrated_post_meta_a1_(ctx)],
 			dehydrated_post_meta_a1=>
 				sorted_dehydrated_post_meta_a1__new(
