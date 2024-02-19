@@ -44,8 +44,8 @@
 		"theme"
 	],
 	"dependencies": {
-		"ctx-core": "^6.4.2",
-		"rmemo": "^0.46.2"
+		"ctx-core": "^6.4.3",
+		"rmemo": "^0.46.3"
 	},
 	"devDependencies": {
 		"bun-types": "latest"
