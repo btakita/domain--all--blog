@@ -3,7 +3,7 @@ import { id_be_lock_memosig_triple_, id_be_memo_pair_ } from 'ctx-core/rmemo'
 import { type request_ctx_T } from 'rebuildjs/server'
 import { post_mod_a1_ } from './post_mod.js'
 export const [
-	dehydrated_post_meta_a1$_,
+	,
 	dehydrated_post_meta_a1_,
 	dehydrated_post_meta_a1__set,
 ] = id_be_lock_memosig_triple_(
@@ -15,7 +15,7 @@ export const [
 					// server side...will not execute on browser
 					post_mod.meta_(ctx as request_ctx_T))))
 export const [
-	sorted_dehydrated_post_meta_a1$_,
+	,
 	sorted_dehydrated_post_meta_a1_,
 ] = id_be_memo_pair_(
 	'sorted_dehydrated_post_meta_a1',
