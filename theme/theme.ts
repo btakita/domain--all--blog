@@ -3,7 +3,6 @@ import { id_be_sig_triple_, memo_, rmemo__off__add, type wide_ctx_T } from 'rmem
 export const [
 	theme$_,
 	theme_,
-	,
 ] = id_be_sig_triple_<theme_T, { watch?:MediaQueryList }>(
 	'theme',
 	()=>'light'
