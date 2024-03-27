@@ -70,6 +70,7 @@ export function post_meta__hydrate({
 }
 export type dehydrated_post_meta_T = {
 	author:string
+	author_img_url:string
 	pub_date:string
 	title:string
 	slug:string
@@ -84,6 +85,7 @@ export type dehydrated_post_meta_T = {
 }
 export type in_dehydrated_post_meta_T = {
 	author:string
+	author_img_url:string
 	pub_date:string
 	title:string
 	slug:string
@@ -98,6 +100,7 @@ export type in_dehydrated_post_meta_T = {
 }
 export type post_meta_T = {
 	author:string
+	author_img_url:string
 	pub_date:Date
 	title:string
 	slug:string
