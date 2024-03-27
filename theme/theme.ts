@@ -5,7 +5,7 @@ export const [
 	theme_,
 ] = id_be_sig_triple_<theme_T, { watch?:MediaQueryList }>(
 	'theme',
-	()=>'light'
+	()=>(is_browser_() && <theme_T>localStorage.getItem('theme')) || 'light'
 ).add((ctx, theme$)=>{
 	if (is_server_()) return
 	return memo_(()=>{
