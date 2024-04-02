@@ -1,3 +1,4 @@
+import { site__author_, site__author_img_url_ } from '@rappstack/domain--server/site'
 import { nullish__none_ } from 'ctx-core/function'
 import { id_be_lock_memosig_triple_, id_be_memo_pair_ } from 'ctx-core/rmemo'
 import { type request_ctx_T } from 'rebuildjs/server'
@@ -36,7 +37,8 @@ export function sorted_dehydrated_post_meta_a1__new(
 					Math.floor(new Date(a.pub_date).getTime() / 1000)))
 }
 export function post_meta__validate(
-	dehydrated_post_meta:in_dehydrated_post_meta_T
+	ctx:request_ctx_T,
+	dehydrated_post_meta:in_dehydrated_post_meta_T,
 ):dehydrated_post_meta_T {
 	const {
 		pub_date,
@@ -52,6 +54,8 @@ export function post_meta__validate(
 		throw Error('invalid updated_date ' + updated_date)
 	}
 	return {
+		author: site__author_(ctx)!,
+		author_img_url: site__author_img_url_(ctx)!,
 		...dehydrated_post_meta,
 		tag_a1: dehydrated_post_meta.tag_a1 ?? ['other']
 	}
@@ -85,8 +89,8 @@ export type dehydrated_post_meta_T = {
 	canonical_url?:string
 }
 export type in_dehydrated_post_meta_T = {
-	author:string
-	author_img_url:string
+	author?:string
+	author_img_url?:string
 	pub_date:string
 	title:string
 	slug:string
