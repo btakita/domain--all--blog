@@ -78,6 +78,7 @@ export type dehydrated_post_meta_T = {
 	author_img_url:string
 	pub_date:string
 	title:string
+	subtitle?:string
 	slug:string
 	description:string
 	updated_date?:string
@@ -93,6 +94,7 @@ export type in_dehydrated_post_meta_T = {
 	author_img_url?:string
 	pub_date:string
 	title:string
+	subtitle?:string
 	slug:string
 	description:string
 	updated_date?:string
@@ -108,6 +110,7 @@ export type post_meta_T = {
 	author_img_url:string
 	pub_date:Date
 	title:string
+	subtitle?:string
 	slug:string
 	description:string
 	updated_date?:Date
