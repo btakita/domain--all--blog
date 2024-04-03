@@ -1,4 +1,4 @@
-import { site__author_, site__author_img_url_ } from '@rappstack/domain--server/site'
+import { type author_T, site__author_a1_ } from '@rappstack/domain--server/site'
 import { nullish__none_ } from 'ctx-core/function'
 import { id_be_lock_memosig_triple_, id_be_memo_pair_ } from 'ctx-core/rmemo'
 import { type request_ctx_T } from 'rebuildjs/server'
@@ -54,8 +54,7 @@ export function post_meta__validate(
 		throw Error('invalid updated_date ' + updated_date)
 	}
 	return {
-		author: site__author_(ctx)!,
-		author_img_url: site__author_img_url_(ctx)!,
+		author_a1: site__author_a1_(ctx)!,
 		...dehydrated_post_meta,
 		tag_a1: dehydrated_post_meta.tag_a1 ?? ['other']
 	}
@@ -74,8 +73,7 @@ export function post_meta__hydrate({
 	} as post_meta_T
 }
 export type dehydrated_post_meta_T = {
-	author:string
-	author_img_url:string
+	author_a1:[author_T, ...author_T[]]
 	pub_date:string
 	title:string
 	subtitle?:string
@@ -90,8 +88,7 @@ export type dehydrated_post_meta_T = {
 	canonical_url?:string
 }
 export type in_dehydrated_post_meta_T = {
-	author?:string
-	author_img_url?:string
+	author_a1?:[author_T, ...author_T[]]
 	pub_date:string
 	title:string
 	subtitle?:string
@@ -106,8 +103,7 @@ export type in_dehydrated_post_meta_T = {
 	canonical_url?:string
 }
 export type post_meta_T = {
-	author:string
-	author_img_url:string
+	author_a1?:[author_T, ...author_T[]]
 	pub_date:Date
 	title:string
 	subtitle?:string
