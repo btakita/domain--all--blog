@@ -63,6 +63,7 @@ export type dehydrated_post_meta_T = {
 	featured?:boolean
 	draft?:boolean
 	canonical_url?:string
+	is_pillar?:boolean
 }
 export type post_meta_T = {
 	author_a1?:[author_T, ...author_T[]]
@@ -78,4 +79,5 @@ export type post_meta_T = {
 	featured?:boolean
 	draft?:boolean
 	canonical_url?:string
+	is_pillar?:boolean
 }
