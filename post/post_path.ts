@@ -6,7 +6,7 @@ export const [
 	,
 	post_path_prefix_,
 	post_path_prefix__set,
-] = be_sig_triple_(()=>'post')
+] = be_sig_triple_(()=>'posts')
 export function post_path__new(
 	ctx:wide_ctx_T,
 	url_segment_OR_dehydrated_post_meta:url_segment_T|dehydrated_post_meta_T
