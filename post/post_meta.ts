@@ -56,7 +56,7 @@ export type dehydrated_post_meta_T = {
 	subtitle?:string
 	slug:string
 	description:string
-	description_md?:string
+	description_html?:string
 	updated_date?:string
 	hero_image?:string
 	og_image?:string
@@ -73,7 +73,7 @@ export type post_meta_T = {
 	subtitle?:string
 	slug:string
 	description:string
-	description_md?:string
+	description_html?:string
 	updated_date?:Date
 	hero_image?:string
 	og_image?:string
