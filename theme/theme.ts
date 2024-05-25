@@ -10,7 +10,7 @@ export const [
 		(ctx, theme$)=>{
 			if (is_server_()) return
 			return memo_(()=>{
-				document.firstElementChild!.setAttribute('data-theme', theme$())
+				document.firstElementChild!.setAttribute('data-color-scheme', theme$())
 				// Get a reference to the body element
 				const { body } = document
 				// Check if the body element exists before using getComputedStyle
