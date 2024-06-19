@@ -44,8 +44,8 @@
 		"theme"
 	],
 	"dependencies": {
-		"ctx-core": "^7.2.20",
-		"rmemo": "^0.51.20"
+		"ctx-core": "^7.2.22",
+		"rmemo": "^0.51.22"
 	},
 	"devDependencies": {},
 	"peerDependencies": {
